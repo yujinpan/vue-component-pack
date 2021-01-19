@@ -10,7 +10,7 @@ module.exports = (config) => {
     webpack: {
       mode: 'development',
       resolve: {
-        alias: require('../../alias.config'),
+        alias: require('../../alias.config.js'),
         extensions: ['.ts', '.js']
       },
       devtool: 'inline-source-map',
