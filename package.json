@@ -58,7 +58,8 @@
     "sass-loader": "^7.1.0",
     "typescript": "~3.9.3",
     "vue-cli-plugin-element": "^1.0.1",
-    "webpack": "^4.44.2"
+    "webpack": "^4.44.2",
+    "vue-template-compiler": "^2.6.12"
   },
   "postcss": {
     "plugins": {
