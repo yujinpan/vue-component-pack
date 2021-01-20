@@ -3,14 +3,15 @@
   "version": "1.1.0",
   "author": "your-name",
   "module": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "typings": "types/index.d.ts",
   "files": [
     "dist",
+    "types",
     "src/components"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "cross-env NODE_ENV=production rollupx && eslint --fix dist/**/*.d.ts",
+    "build": "cross-env NODE_ENV=production rollupx && eslint --fix types/**/*.d.ts",
     "build:example": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "npm run serve",
@@ -53,7 +54,7 @@
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^4.0.2",
     "node-sass": "^4.12.0",
-    "rollupx": "^1.1.2",
+    "rollupx": "^1.1.7",
     "sass-loader": "^7.1.0",
     "typescript": "~3.9.3",
     "vue-cli-plugin-element": "^1.0.1",
