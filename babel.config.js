@@ -1,8 +1,4 @@
 module.exports = {
-  presets: [['@vue/app'], '@babel/preset-typescript'],
-  plugins: [
-    '@babel/plugin-proposal-export-default-from',
-    '@babel/plugin-proposal-optional-chaining'
-  ],
+  extends: 'rollupx/babel.config.js',
   exclude: 'node_modules/**'
 };

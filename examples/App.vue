@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import HelloWorld from '@/index.ts';
+import HelloWorld from '../dist';
 import '@/element-ui.ts';
 
 const version = require('../package').version;

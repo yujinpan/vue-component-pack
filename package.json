@@ -29,11 +29,7 @@
     "vue-runtime-helpers": "^1.1.2"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-export-default-from": "^7.5.2",
-    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
-    "@babel/preset-typescript": "^7.10.4",
     "@types/jasmine": "^3.6.0",
-    "@vue/cli-plugin-babel": "^4.5.9",
     "@vue/cli-plugin-eslint": "^4.5.9",
     "@vue/cli-plugin-typescript": "^4.5.9",
     "@vue/cli-service": "^4.5.9",
@@ -54,7 +50,7 @@
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^4.0.2",
     "node-sass": "^4.12.0",
-    "rollupx": "^1.1.7",
+    "rollupx": "^1.1.8",
     "sass-loader": "^7.1.0",
     "typescript": "~3.9.3",
     "vue-cli-plugin-element": "^1.0.1",

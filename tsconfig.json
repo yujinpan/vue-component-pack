@@ -1,14 +1,6 @@
 {
+  "extends": "rollupx/tsconfig.json",
   "compilerOptions": {
-    "strict": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@/*": [
