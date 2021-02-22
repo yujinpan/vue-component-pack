@@ -2,10 +2,10 @@
   "name": "your-component",
   "version": "1.1.0",
   "author": "your-name",
-  "module": "dist/index.js",
+  "module": "lib/index.js",
   "typings": "types/index.d.ts",
   "files": [
-    "dist",
+    "lib",
     "types",
     "src/components"
   ],
