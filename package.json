@@ -53,12 +53,12 @@
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^4.0.2",
     "node-sass": "^4.12.0",
-    "rollupx": "^1.2.12",
+    "rollupx": "^1.3.13",
     "sass-loader": "^7.1.0",
     "typescript": "~3.9.3",
     "vue-cli-plugin-element": "^1.0.1",
-    "webpack": "^4.44.2",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.44.2"
   },
   "postcss": {
     "plugins": {
