@@ -1,57 +1,82 @@
+<script lang="tsx">
+import HelloWorld from '../src';
+import '@/element-ui.ts';
+import { CMDoc, CMTable } from '@yujinpan/common-modules';
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+
+const version = require('../package').version;
+
+@Component
+export default class Example extends Vue {
+  renderFunction1() {
+    return [
+      <h4>Function 1</h4>,
+      <p>Function 1 description...</p>,
+      <section>
+        <HelloWorld msg="HelloWorld"></HelloWorld>
+        <hr />
+        <Highlight
+          code={`
 <template>
-  <div class="app cm-padding-medium cm-text-center">
-    <h2>your-component</h2>
-    <p class="cm-text-secondary">author: your-name - version: v{{ version }}</p>
-    <el-divider></el-divider>
-    <el-row class="cm-text-left" type="flex">
-      <el-col :span="12">
-        <Highlight :code="code" lang="xml" />
-      </el-col>
-      <el-col class="cm-text-left" :span="12">
-        <div>
-          <label>Function 1:</label>
-          <HelloWorld />
-        </div>
-        <el-divider></el-divider>
-        <el-link
-          type="primary"
-          href="https://github.com/your-name/your-component#attributes"
-          >https://github.com/your-name/your-component</el-link
-        >
-      </el-col>
-    </el-row>
-  </div>
+  <HelloWorld msg="HelloWorld" />
 </template>
 
 <script>
-import HelloWorld from '../src';
-import '@/element-ui.ts';
-
-const version = require('../package').version;
+import HelloWorld from 'your-component';
 
 export default {
   components: {
     HelloWorld
-  },
-  data() {
-    return {
-      version,
-      code: require('./template/example1').default
-    };
   }
 };
-</script>
+<\\/script>
+`}
+        ></Highlight>
+      </section>
+    ];
+  }
 
-<style lang="scss" scoped>
-@import './styles/common-variables';
+  renderProps() {
+    return [
+      <h4>Props</h4>,
+      <p>Props description...</p>,
+      <CMTable
+        size="mini"
+        order={false}
+        show-overflow-tooltip={false}
+        columns={[
+          { label: '属性名', prop: 'prop' },
+          { label: '类型', prop: 'type', type: 'tag' },
+          { label: '描述', prop: 'desc' }
+        ]}
+        data={[
+          { prop: 'prop1', type: 'String', desc: 'prop1 desc...' },
+          { prop: 'prop1', type: 'String', desc: 'prop1 desc...' },
+          { prop: 'prop1', type: 'String', desc: 'prop1 desc...' }
+        ]}
+      ></CMTable>
+    ];
+  }
 
-.app {
-  .el-col {
-    padding: $spacing-medium;
-    border-right: $--border-base;
-    &:last-of-type {
-      border-right: 0;
-    }
+  render() {
+    return (
+      <CMDoc class="cm-padding-medium">
+        <h3>your-component</h3>
+        <p>
+          author:&nbsp;&nbsp;<code>your-name</code>
+          &nbsp;&nbsp;version:&nbsp;&nbsp;
+          <code>v{require('../package').version}</code>&nbsp;&nbsp;source
+          code:&nbsp;&nbsp;
+          <code>
+            <a href="https://github.com/your-name/your-component#attributes">
+              github
+            </a>
+          </code>
+        </p>
+        {[this.renderFunction1(), this.renderProps()]}
+      </CMDoc>
+    );
   }
 }
-</style>
+</script>
