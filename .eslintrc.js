@@ -21,7 +21,8 @@ module.exports = {
       {
         singleQuote: true,
         arrowParens: 'always',
-        semi: true
+        semi: true,
+        trailingComma: 'none'
       }
     ],
     'no-debugger': productionError,
