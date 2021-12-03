@@ -18,12 +18,7 @@ module.exports = {
     'prettier/prettier': [
       'error',
       // 这里自定义 prettier 的规则
-      {
-        singleQuote: true,
-        arrowParens: 'always',
-        semi: true,
-        trailingComma: 'none'
-      }
+      require('./.prettierrc.js')
     ],
     'no-debugger': productionError,
     'no-console': productionError,
