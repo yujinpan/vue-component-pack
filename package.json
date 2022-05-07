@@ -10,12 +10,13 @@
     "src/components"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "cross-env NODE_ENV=production rollupx && eslint --fix types/**/*.d.ts",
-    "build:example": "vue-cli-service build",
+    "dev": "vue-cli-service serve",
+    "build": "cross-env NODE_ENV=production rollupx && eslint --fix lib/**/*.d.ts",
     "lint": "vue-cli-service lint",
-    "start": "npm run serve",
-    "test": "karma start test/unit/karma.config.js"
+    "start": "npm run dev",
+    "test": "karma start test/unit/karma.config.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs && cp dist/index.html _layouts/default.html"
   },
   "dependencies": {
     "@babel/runtime": "^7.x",
@@ -23,7 +24,7 @@
     "core-js": "^3.x",
     "element-ui": "^2.x",
     "style-inject": "^0.x",
-    "vue": "^2.6.12",
+    "vue": "^2.6.14",
     "vue-class-component": "^7.x",
     "vue-property-decorator": "^8.x",
     "vue-runtime-helpers": "^1.x"
@@ -43,7 +44,6 @@
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
-    "highlight-vue": "^1.1.2",
     "jasmine-core": "^3.6.0",
     "karma": "^5.2.3",
     "karma-chrome-launcher": "^3.1.0",
@@ -55,7 +55,8 @@
     "sass-loader": "^7.1.0",
     "typescript": "~3.9.3",
     "vue-cli-plugin-element": "^1.0.1",
-    "vue-template-compiler": "^2.6.12",
+    "vue-template-compiler": "^2.6.14",
+    "vuepress": "^1.9.5",
     "webpack": "^4.44.2"
   },
   "postcss": {
