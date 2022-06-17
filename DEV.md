@@ -9,7 +9,9 @@
 
 ### Unit Test
 
-- create test file in `test/unit/modules`
+- create test files:
+  - source-code.js
+  - source-code.spec.js
 - run command `npm run test`
 
 ### Browser Test
