@@ -29,10 +29,20 @@ module.exports = {
     parser: '@typescript-eslint/parser'
   },
 
-  'extends': [
+  extends: [
     'plugin:vue/essential',
     'eslint:recommended',
     '@vue/prettier',
     '@vue/typescript'
+  ],
+
+  overrides: [
+    {
+      files: ['*.spec.+(js|ts)'],
+      rules: {
+        'no-console': "off",
+        'no-debugger': "off"
+      }
+    }
   ]
 };
