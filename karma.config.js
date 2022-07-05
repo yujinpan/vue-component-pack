@@ -9,7 +9,10 @@ module.exports = (config) => {
     files: ['src/**/*.spec.+(js|ts)'],
 
     preprocessors: {
-      'src/**/*.+(js|ts)': ['webpack', 'sourcemap']
+      'src/**/*.+(js|ts)': [
+        'webpack'
+        // 'sourcemap'
+      ]
     },
     browsers: ['Chrome'],
     singleRun: true,
@@ -18,9 +21,9 @@ module.exports = (config) => {
       mode: 'development',
       resolve: {
         alias: require('./alias.config.js'),
-        extensions: ['.ts', '.js']
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.vuex']
       },
-      devtool: 'inline-source-map',
+      // devtool: 'inline-source-map',
       module: {
         rules: [
           {
@@ -28,9 +31,8 @@ module.exports = (config) => {
             loader: 'vue-loader'
           },
           {
-            test: /\.js$/,
-            exclude: (file) =>
-              /node_modules/.test(file) && !/\.vue\.js/.test(file),
+            test: /\.jsx$/,
+            exclude: /node_modules/,
             loader: 'babel-loader'
           },
           {
@@ -39,7 +41,24 @@ module.exports = (config) => {
             options: { appendTsSuffixTo: [/\.vue$/] }
           },
           {
-            exclude: /\.(js|ts|vue)$/,
+            test: /\.tsx$/,
+            use: [
+              {
+                loader: 'babel-loader',
+                options: {
+                  exclude: /node_modules/
+                }
+              },
+              {
+                loader: 'ts-loader',
+                options: {
+                  appendTsxSuffixTo: [/\.vue$/]
+                }
+              }
+            ]
+          },
+          {
+            exclude: /\.(js|jsx|ts|tsx|vue|vuex)$/,
             loader: 'null-loader'
           }
         ]
