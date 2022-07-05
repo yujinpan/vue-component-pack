@@ -31,14 +31,24 @@ module.exports = (config) => {
             loader: 'vue-loader'
           },
           {
-            test: /\.jsx$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             loader: 'babel-loader'
           },
           {
             test: /\.ts$/,
-            loader: 'ts-loader',
-            options: { appendTsSuffixTo: [/\.vue$/] }
+            use: [
+              {
+                loader: 'babel-loader',
+                options: {
+                  exclude: /node_modules/
+                }
+              },
+              {
+                loader: 'ts-loader',
+                options: { appendTsSuffixTo: [/\.vue$/] }
+              }
+            ]
           },
           {
             test: /\.tsx$/,
