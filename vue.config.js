@@ -6,5 +6,16 @@
 module.exports = {
   configureWebpack: {
     entry: './dev/main.ts'
+  },
+
+  css: {
+    loaderOptions: {
+      sass: {
+        sassOptions: {
+          // ignore deprecation warnings
+          quietDeps: true
+        }
+      }
+    }
   }
 };
