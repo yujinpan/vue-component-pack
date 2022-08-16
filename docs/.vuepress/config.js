@@ -25,10 +25,9 @@ const sidebar = {
 };
 
 module.exports = {
-  base: '/your-component/dist/',
+  base: '/your-component/',
   title: 'your-component',
   description: 'your-component description',
-  dest: path.resolve(__dirname, '../../dist'),
 
   head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   themeConfig: {
