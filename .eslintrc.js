@@ -1,4 +1,5 @@
-const productionError = process.env.NODE_ENV === 'production' ? 'error' : 'warn';
+const productionError =
+  process.env.NODE_ENV === 'production' ? 'error' : 'warn';
 
 /**
  * eslint + prettier 校验代码
@@ -17,8 +18,12 @@ module.exports = {
   rules: {
     'prettier/prettier': [
       'error',
-      // 这里自定义 prettier 的规则
-      require('./.prettierrc.js')
+      {
+        singleQuote: true,
+        arrowParens: 'always',
+        semi: true,
+        trailingComma: 'none'
+      }
     ],
     'no-debugger': productionError,
     'no-console': productionError,
@@ -40,8 +45,8 @@ module.exports = {
     {
       files: ['*.spec.+(js|ts)'],
       rules: {
-        'no-console': "off",
-        'no-debugger': "off"
+        'no-console': 'off',
+        'no-debugger': 'off'
       }
     }
   ]
