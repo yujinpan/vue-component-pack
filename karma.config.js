@@ -68,7 +68,7 @@ module.exports = (config) => {
             ]
           },
           {
-            exclude: /\.(js|jsx|ts|tsx|vue|vuex)$/,
+            test: /\.(css|scss|sass|less|stylus|png|jpeg|jpg|gif|svg)$/,
             loader: 'null-loader'
           }
         ]
