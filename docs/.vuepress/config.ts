@@ -1,9 +1,10 @@
-const path = require('path');
+import { defineConfig } from 'vuepress/config';
+import path from 'path';
 
 const nav = [
   { text: 'Guide', link: '/guide/' },
   { text: 'API', link: '/api/' },
-  { text: 'Components', link: '/components/' }
+  { text: 'Components', link: '/components/' },
 ];
 
 const sidebar = {
@@ -11,20 +12,20 @@ const sidebar = {
     {
       title: 'Guide',
       path: '/guide/',
-      children: ['/guide/getting-started', '/guide/feature-1']
-    }
+      children: ['/guide/getting-started', '/guide/feature-1'],
+    },
   ],
   '/api/': ['/api/'],
   '/components/': [
     {
       title: 'Components',
       path: '/components/',
-      children: ['/components/component-1']
-    }
-  ]
+      children: ['/components/component-1'],
+    },
+  ],
 };
 
-module.exports = {
+export default defineConfig({
   base: '/your-component/',
   title: 'your-component',
   description: 'your-component description',
@@ -35,16 +36,16 @@ module.exports = {
     lastUpdated: 'Last Updated',
 
     sidebar,
-    nav
+    nav,
   },
 
   configureWebpack: {
     resolve: {
       alias: {
-        'your-component': path.resolve(__dirname, '../../lib')
-      }
-    }
+        'your-component': path.resolve(__dirname, '../../src/lib'),
+      },
+    },
   },
 
-  plugins: [require('./plugins/components-codes')]
-};
+  plugins: [require('./plugins/components-codes')],
+});
