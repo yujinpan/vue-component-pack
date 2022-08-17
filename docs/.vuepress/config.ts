@@ -25,6 +25,26 @@ const sidebar = {
   ],
 };
 
+// fork from @vuepress/core/lib/node/webpack/createServerConfig.js
+const babelLoader = {
+  loader: 'babel-loader',
+  options: {
+    // do not pick local project babel config (.babelrc)
+    babelrc: false,
+    // do not pick local project babel config (babel.config.js)
+    // ref: http://babeljs.io/docs/en/config-files
+    configFile: false,
+    presets: [
+      [
+        '@vue/app',
+        {
+          entryFiles: [path.resolve(__dirname, 'serverEntry.js')],
+        },
+      ],
+    ],
+  },
+};
+
 export default defineConfig({
   base: '/your-component/',
   title: 'your-component',
@@ -41,9 +61,38 @@ export default defineConfig({
 
   configureWebpack: {
     resolve: {
+      extensions: ['.js', '.ts', '.tsx', '.vue'],
       alias: {
-        'your-component': path.resolve(__dirname, '../../lib'),
+        '@': path.resolve(__dirname, '../../src'),
+        'your-component': path.resolve(__dirname, '../../src'),
       },
+    },
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: [
+            babelLoader,
+            {
+              loader: 'ts-loader',
+              options: { transpileOnly: true, appendTsSuffixTo: [/\.vue$/] },
+            },
+          ],
+        },
+        {
+          test: /\.tsx$/,
+          use: [
+            babelLoader,
+            {
+              loader: 'ts-loader',
+              options: {
+                transpileOnly: true,
+                appendTsxSuffixTo: [/\.vue$/],
+              },
+            },
+          ],
+        },
+      ],
     },
   },
 
