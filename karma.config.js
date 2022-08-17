@@ -10,9 +10,9 @@ module.exports = (config) => {
 
     preprocessors: {
       'src/**/*.+(js|ts)': [
-        'webpack'
+        'webpack',
         // 'sourcemap'
-      ]
+      ],
     },
     browsers: ['Chrome'],
     singleRun: true,
@@ -21,19 +21,19 @@ module.exports = (config) => {
       mode: 'development',
       resolve: {
         alias: require('./alias.config.js'),
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.vuex']
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.vuex'],
       },
       // devtool: 'inline-source-map',
       module: {
         rules: [
           {
             test: /\.vue$/,
-            loader: 'vue-loader'
+            loader: 'vue-loader',
           },
           {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            loader: 'babel-loader'
+            loader: 'babel-loader',
           },
           {
             test: /\.ts$/,
@@ -41,14 +41,14 @@ module.exports = (config) => {
               {
                 loader: 'babel-loader',
                 options: {
-                  exclude: /node_modules/
-                }
+                  exclude: /node_modules/,
+                },
               },
               {
                 loader: 'ts-loader',
-                options: { appendTsSuffixTo: [/\.vue$/] }
-              }
-            ]
+                options: { appendTsSuffixTo: [/\.vue$/] },
+              },
+            ],
           },
           {
             test: /\.tsx$/,
@@ -56,31 +56,31 @@ module.exports = (config) => {
               {
                 loader: 'babel-loader',
                 options: {
-                  exclude: /node_modules/
-                }
+                  exclude: /node_modules/,
+                },
               },
               {
                 loader: 'ts-loader',
                 options: {
-                  appendTsxSuffixTo: [/\.vue$/]
-                }
-              }
-            ]
+                  appendTsxSuffixTo: [/\.vue$/],
+                },
+              },
+            ],
           },
           {
             test: /\.(css|scss|sass|less|stylus|png|jpeg|jpg|gif|svg)$/,
-            loader: 'null-loader'
-          }
-        ]
+            loader: 'null-loader',
+          },
+        ],
       },
-      plugins: [new VueLoaderPlugin()]
+      plugins: [new VueLoaderPlugin()],
     },
 
     plugins: [
       'karma-webpack',
       'karma-sourcemap-loader',
       'karma-jasmine',
-      'karma-chrome-launcher'
-    ]
+      'karma-chrome-launcher',
+    ],
   });
 };

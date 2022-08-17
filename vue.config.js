@@ -5,7 +5,7 @@
  */
 module.exports = {
   configureWebpack: {
-    entry: './dev/main.ts'
+    entry: './dev/main.ts',
   },
 
   css: {
@@ -13,9 +13,9 @@ module.exports = {
       sass: {
         sassOptions: {
           // ignore deprecation warnings
-          quietDeps: true
-        }
-      }
-    }
-  }
+          quietDeps: true,
+        },
+      },
+    },
+  },
 };

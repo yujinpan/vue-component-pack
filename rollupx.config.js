@@ -5,5 +5,5 @@ module.exports = {
     ` * (c) 2019-${new Date().getFullYear()} your-name\n` +
     ' * Released under the MIT License.\n' +
     ' */\n',
-  outputDir: 'lib'
+  outputDir: 'lib',
 };

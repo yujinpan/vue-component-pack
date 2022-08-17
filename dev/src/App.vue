@@ -11,7 +11,7 @@ export default {
   components: { HelloWorld },
   data() {
     return {};
-  }
+  },
 };
 </script>
 

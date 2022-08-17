@@ -9,10 +9,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
   // 利于 IDE 自动提示
-  name: 'HelloWorld'
+  name: 'HelloWorld',
 })
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+  @Prop({ type: String, default: 'Hello World!' }) readonly msg!: string;
 }
 </script>
 

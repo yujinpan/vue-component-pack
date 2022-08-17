@@ -12,7 +12,7 @@ module.exports = {
   root: true,
 
   env: {
-    node: true
+    node: true,
   },
 
   rules: {
@@ -22,23 +22,22 @@ module.exports = {
         singleQuote: true,
         arrowParens: 'always',
         semi: true,
-        trailingComma: 'none'
-      }
+      },
     ],
     'no-debugger': productionError,
     'no-console': productionError,
-    eqeqeq: ['error', 'always']
+    eqeqeq: ['error', 'always'],
   },
 
   parserOptions: {
-    parser: '@typescript-eslint/parser'
+    parser: '@typescript-eslint/parser',
   },
 
   extends: [
     'plugin:vue/essential',
     'eslint:recommended',
     '@vue/prettier',
-    '@vue/typescript'
+    '@vue/typescript',
   ],
 
   overrides: [
@@ -46,8 +45,8 @@ module.exports = {
       files: ['*.spec.+(js|ts)'],
       rules: {
         'no-console': 'off',
-        'no-debugger': 'off'
-      }
-    }
-  ]
+        'no-debugger': 'off',
+      },
+    },
+  ],
 };

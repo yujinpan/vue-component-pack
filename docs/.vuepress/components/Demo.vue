@@ -13,12 +13,12 @@ import COMPONENTS_CODES from '@dynamic/components-codes';
 
 export default {
   props: {
-    component: String
+    component: String,
   },
   data() {
     return {
-      code: COMPONENTS_CODES[this.component]
+      code: COMPONENTS_CODES[this.component],
     };
-  }
+  },
 };
 </script>
