@@ -42,7 +42,7 @@ export default defineConfig({
   configureWebpack: {
     resolve: {
       alias: {
-        'your-component': path.resolve(__dirname, '../../src/lib'),
+        'your-component': path.resolve(__dirname, '../../lib'),
       },
     },
   },
