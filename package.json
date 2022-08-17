@@ -4,6 +4,9 @@
   "author": "your-name",
   "module": "lib/index.js",
   "typings": "types/index.d.ts",
+  "workspaces": [
+    "docs"
+  ],
   "files": [
     "lib",
     "types",
@@ -15,8 +18,8 @@
     "lint": "vue-cli-service lint",
     "start": "npm run dev",
     "test": "karma start karma.config.js",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs && cp dist/index.html _layouts/default.html"
+    "docs:dev": "npm run docs:dev -w docs",
+    "docs:build": "npm run docs:build -w docs"
   },
   "dependencies": {
     "@babel/runtime": "^7.x",
@@ -49,15 +52,14 @@
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^5.0.0",
     "null-loader": "^4.0.1",
-    "postcss": "^8.4.16",
-    "rollupx": "^2.0.18",
+    "prettier": "^2.5.1",
+    "rollupx": "^2.0.21",
     "sass": "^1.54.4",
     "sass-loader": "^13.0.2",
     "ts-loader": "^9.3.1",
     "typescript": "~4.7.4",
     "vue-loader": "^15.10.0",
     "vue-template-compiler": "^2.6.14",
-    "vuepress": "^1.9.7",
     "webpack": "^5.74.0"
   },
   "browserslist": [
