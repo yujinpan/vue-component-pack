@@ -49,7 +49,7 @@ module.exports = (config) => {
               },
               {
                 loader: 'ts-loader',
-                options: { appendTsSuffixTo: [/\.vue$/] },
+                options: { transpileOnly: true, appendTsSuffixTo: [/\.vue$/] },
               },
             ],
           },
@@ -65,6 +65,7 @@ module.exports = (config) => {
               {
                 loader: 'ts-loader',
                 options: {
+                  transpileOnly: true,
                   appendTsxSuffixTo: [/\.vue$/],
                 },
               },
