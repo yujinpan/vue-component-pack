@@ -24,6 +24,7 @@ module.exports = {
         semi: true,
       },
     ],
+    'vue/multi-word-component-names': 'off',
     'no-debugger': productionError,
     'no-console': productionError,
     eqeqeq: ['error', 'always'],
