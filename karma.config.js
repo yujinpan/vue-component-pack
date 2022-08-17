@@ -1,4 +1,5 @@
 const { VueLoaderPlugin } = require('vue-loader');
+const path = require('path');
 
 module.exports = (config) => {
   config.set({
@@ -20,7 +21,9 @@ module.exports = (config) => {
     webpack: {
       mode: 'development',
       resolve: {
-        alias: require('./alias.config.js'),
+        alias: {
+          '@': path.resolve(__dirname, 'src'),
+        },
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.vuex'],
       },
       // devtool: 'inline-source-map',
