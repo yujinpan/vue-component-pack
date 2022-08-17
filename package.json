@@ -4,9 +4,6 @@
   "author": "your-name",
   "module": "lib/index.js",
   "typings": "types/index.d.ts",
-  "workspaces": [
-    "docs"
-  ],
   "files": [
     "lib",
     "types",
