@@ -97,4 +97,10 @@ export default defineConfig({
   },
 
   plugins: [require('./plugins/components-codes')],
+
+  scss: {
+    sassOptions: {
+      quietDeps: true,
+    },
+  },
 });
