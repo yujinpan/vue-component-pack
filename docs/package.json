@@ -6,6 +6,7 @@
     "docs:build": "vuepress build ."
   },
   "devDependencies": {
+    "sass-loader": "^9.0.3",
     "vuepress": "^1.9.7",
     "webpack": "^4.46.0"
   }
