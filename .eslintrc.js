@@ -24,6 +24,15 @@ module.exports = {
         semi: true,
       },
     ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        types: {
+          '{}': false,
+        },
+      },
+    ],
     'vue/multi-word-component-names': 'off',
     'no-debugger': productionError,
     'no-console': productionError,
