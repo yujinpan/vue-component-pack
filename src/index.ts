@@ -1,7 +1,6 @@
-// 主组件
 import HelloWorld from '@/components/HelloWorld.vue';
 import './styles/index.scss';
-import { VueConstructor } from 'vue';
+import type { VueConstructor } from 'vue';
 
 // @ts-ignore
 HelloWorld.install = (vue: VueConstructor) => {
