@@ -1,22 +1,23 @@
-const { VueLoaderPlugin } = require('vue-loader');
 const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = (config) => {
+  const debug = !config.singleRun;
+
   config.set({
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'webpack'],
 
     // single file test
     // files: ['src/components/*.spec.+(js|ts)'],
     files: ['src/**/*.spec.+(js|ts)'],
 
     preprocessors: {
-      'src/**/*.+(js|ts)': [
-        'webpack',
-        // 'sourcemap'
-      ],
+      'src/**/*.+(js|ts)': debug ? ['webpack', 'sourcemap'] : ['webpack'],
     },
     browsers: ['Chrome'],
-    singleRun: true,
+    client: {
+      captureConsole: false,
+    },
 
     webpack: {
       mode: 'development',
@@ -24,14 +25,20 @@ module.exports = (config) => {
         alias: {
           '@': path.resolve(__dirname, 'src'),
         },
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.vuex'],
+        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.vue', '.vuex'],
       },
-      // devtool: 'inline-source-map',
+      devtool: debug ? 'eval-source-map' : 'eval',
       module: {
         rules: [
           {
             test: /\.vue$/,
             loader: 'vue-loader',
+          },
+          debug && {
+            test: /\.js$/,
+            include: /node_modules/,
+            enforce: 'pre',
+            loader: 'source-map-loader',
           },
           {
             test: /\.(js|jsx)$/,
@@ -75,16 +82,16 @@ module.exports = (config) => {
             test: /\.(css|scss|sass|less|stylus|png|jpeg|jpg|gif|svg)$/,
             loader: 'null-loader',
           },
-        ],
+        ].filter((item) => !!item),
       },
       plugins: [new VueLoaderPlugin()],
     },
 
     plugins: [
       'karma-webpack',
-      'karma-sourcemap-loader',
+      debug && 'karma-sourcemap-loader',
       'karma-jasmine',
       'karma-chrome-launcher',
-    ],
+    ].filter((item) => !!item),
   });
 };
