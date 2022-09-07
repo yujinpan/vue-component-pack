@@ -11,6 +11,8 @@
     "src/components"
   ],
   "scripts": {
+    "version": "npm run build && git add -A lib",
+    "postversion": "git push origin master && npm publish",
     "dev": "vue-cli-service serve",
     "build": "cross-env NODE_ENV=production rollupx && eslint --fix lib/**/*.d.ts --no-ignore",
     "lint": "vue-cli-service lint",
