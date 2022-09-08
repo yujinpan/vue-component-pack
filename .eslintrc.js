@@ -12,7 +12,6 @@ module.exports = {
   ],
   rules: {
     // eslint http://eslint.cn/docs/rules/
-    'no-unused-vars': 'error',
     'no-debugger': 'error',
     'no-console': 'error',
     eqeqeq: ['error', 'always'],
