@@ -2,9 +2,6 @@
 require('@rushstack/eslint-patch/modern-module-resolution');
 const path = require('path');
 
-const productionError =
-  process.env.NODE_ENV === 'production' ? 'error' : 'warn';
-
 module.exports = {
   root: true,
   extends: [
@@ -16,8 +13,8 @@ module.exports = {
   rules: {
     // eslint http://eslint.cn/docs/rules/
     'no-unused-vars': 'error',
-    'no-debugger': productionError,
-    'no-console': productionError,
+    'no-debugger': 'error',
+    'no-console': 'error',
     eqeqeq: ['error', 'always'],
 
     // prettier https://prettier.io/docs/en/options.html
@@ -81,13 +78,4 @@ module.exports = {
       },
     },
   },
-
-  overrides: [
-    {
-      files: ['vite.config.*'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-      },
-    },
-  ],
 };
