@@ -1,3 +1,5 @@
+/* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution');
 const path = require('path');
 
 const productionError =
@@ -5,21 +7,12 @@ const productionError =
 
 module.exports = {
   root: true,
-
-  env: {
-    es6: true,
-    node: true,
-  },
-
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/vue3-essential',
     'eslint:recommended',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
-    '@vue/prettier',
-    '@vue/typescript',
+    '@vue/eslint-config-typescript/recommended',
+    '@vue/eslint-config-prettier',
   ],
-
   rules: {
     // eslint http://eslint.cn/docs/rules/
     'no-unused-vars': 'error',
@@ -30,11 +23,26 @@ module.exports = {
     // prettier https://prettier.io/docs/en/options.html
     'prettier/prettier': [
       'error',
-      // 这里自定义 prettier 的规则
       {
         singleQuote: true,
         arrowParens: 'always',
         semi: true,
+        trailingComma: 'all',
+      },
+    ],
+
+    // vue
+    'vue/multi-word-component-names': 'off',
+
+    // typescript https://typescript-eslint.io/rules/
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        types: {
+          '{}': false,
+        },
       },
     ],
 
@@ -54,38 +62,7 @@ module.exports = {
       },
     ],
     'import/newline-after-import': 'error',
-
-    // typescript https://typescript-eslint.io/rules/
-    '@typescript-eslint/consistent-type-imports': 'error',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/ban-types': [
-      'error',
-      {
-        types: {
-          '{}': false,
-        },
-      },
-    ],
   },
-
-  parserOptions: {
-    parser: '@typescript-eslint/parser',
-  },
-
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        'no-dupe-class-members': 'off',
-      },
-    },
-    {
-      files: ['*.spec.ts', '*.spec.js'],
-      rules: {
-        'no-console': 'off',
-      },
-    },
-  ],
 
   plugins: [
     // https://github.com/import-js/eslint-import-resolver-typescript#configuration
@@ -104,4 +81,13 @@ module.exports = {
       },
     },
   },
+
+  overrides: [
+    {
+      files: ['vite.config.*'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
 };
