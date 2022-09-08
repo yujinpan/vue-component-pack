@@ -1,10 +1,10 @@
-<template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div>
-</template>
+<!--<template>-->
+<!--  <div class="hello">-->
+<!--    <h1>{{ msg }}</h1>-->
+<!--  </div>-->
+<!--</template>-->
 
-<script lang="ts">
+<script lang="tsx">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
@@ -13,6 +13,14 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 })
 export default class HelloWorld extends Vue {
   @Prop({ type: String, default: 'Hello World!' }) readonly msg!: string;
+
+  render() {
+    return (
+      <div class="hello">
+        <h1>{this.msg}</h1>
+      </div>
+    );
+  }
 }
 </script>
 
