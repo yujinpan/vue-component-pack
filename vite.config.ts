@@ -5,11 +5,11 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: fileURLToPath(new URL('./dev/', import.meta.url)),
+  root: 'dev',
   plugins: [vue2()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@': fileURLToPath(new URL('src', import.meta.url)),
     },
   },
   css: {
@@ -28,6 +28,6 @@ export default defineConfig({
   },
   // https://vitest.dev/config/
   test: {
-    dir: fileURLToPath(new URL('./src/', import.meta.url)),
+    dir: 'src',
   },
 });
