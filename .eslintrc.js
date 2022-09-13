@@ -51,7 +51,8 @@ module.exports = {
       {
         groups: [
           ['builtin', 'external'],
-          ['internal', 'parent', 'sibling', 'index', 'type'],
+          ['type'],
+          ['internal', 'parent', 'sibling', 'index'],
         ],
         'newlines-between': 'always',
         alphabetize: { order: 'asc' },
