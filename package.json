@@ -11,8 +11,10 @@
     "src/components"
   ],
   "scripts": {
+    "publish:beta": "npm version prerelease --preid=beta && npm publish",
+    "publish:patch": "npm version patch && npm publish",
     "version": "npm run build",
-    "postversion": "git push origin master && npm publish",
+    "postversion": "git push --all && git push --tags",
     "dev": "vite",
     "build": "cross-env NODE_ENV=production rollupx && eslint --fix lib/**/*.d.ts --no-ignore",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
