@@ -7,8 +7,7 @@
   "typings": "types/index.d.ts",
   "files": [
     "lib",
-    "types",
-    "src/components"
+    "src/components/**/*.vue"
   ],
   "scripts": {
     "publish:beta": "npm version prerelease --preid=beta && npm publish",
