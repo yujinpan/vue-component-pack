@@ -54,6 +54,12 @@ module.exports = {
           ['type'],
           ['internal', 'parent', 'sibling', 'index'],
         ],
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'internal',
+          },
+        ],
         'newlines-between': 'always',
         alphabetize: { order: 'asc' },
       },
