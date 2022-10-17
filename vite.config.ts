@@ -29,6 +29,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        // ignore external sass warnings for "10px / 2px"
+        quietDeps: true,
         // resolve start path for "~", like: "~external/style/var.scss"
         importer: (url: string) => {
           return {
