@@ -3,6 +3,7 @@
 import vue2 from '@vitejs/plugin-vue2';
 import vue2Jsx from '@vitejs/plugin-vue2-jsx';
 import { resolve } from 'path';
+import { resolveWithAlias } from 'path-ops';
 import { defineConfig } from 'vite';
 
 const alias = {
@@ -34,7 +35,10 @@ export default defineConfig({
         // resolve start path for "~", like: "~external/style/var.scss"
         importer: (url: string) => {
           return {
-            file: parseAlias(url.startsWith('~') ? url.slice(1) : url, alias),
+            file: resolveWithAlias(
+              url.startsWith('~') ? url.slice(1) : url,
+              alias,
+            ),
           };
         },
       },
@@ -45,17 +49,3 @@ export default defineConfig({
     dir: 'src',
   },
 });
-
-function parseAlias(file: string, alias: Record<string, string>) {
-  const key = Object.keys(alias).find(
-    (item) => file.startsWith(item + '/') || file === item,
-  );
-  if (key) {
-    if (key === file) {
-      return alias[key];
-    } else {
-      return file.replace(key, alias[key]);
-    }
-  }
-  return file;
-}

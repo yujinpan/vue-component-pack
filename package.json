@@ -50,6 +50,7 @@
     "eslint-plugin-vue": "^9.4.0",
     "jsdom": "^20.0.0",
     "npm-run-all": "^4.1.5",
+    "path-ops": "^1.0.0",
     "prettier": "^2.5.1",
     "rollupx": "^2.x",
     "sass": "^1.54.9",
