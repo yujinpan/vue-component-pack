@@ -1,5 +1,5 @@
 <template>
-  <div class="app cm-full-height cm-flex-center">
+  <div class="app">
     <HelloWorld msg="test" />
   </div>
 </template>
