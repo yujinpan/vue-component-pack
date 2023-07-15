@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 16
           cache: npm
-      - run: npm i --registry=https://registry.npmjs.org
+      - run: npm i
       - name: Build
         run: npm run docs:build
       - name: Deploy
