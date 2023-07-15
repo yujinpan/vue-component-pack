@@ -29,7 +29,24 @@
 - run command `npm run build` to get component dest code
 - run command `npm run docs:dev` start docs preview
 - edit `docs/*.md` show your component features
-- run command `npm run docs:build` to build docs website
-- the dest in `dist` folder
 
-> `_layouts` is GitHub static pages, if you don't need, remove it.
+## Publish Library
+
+> You need sign the npm first:
+> `npm login`
+
+- run command `npm run publish:beta` to publish beta version
+- run command `npm run publish:patch` to publish patch version
+
+## Publish Documentation
+
+If you don't have a private package, just `git push` 
+and the GitHub workflow (`.github/workflows/deploy`) will be deployed automatically.
+
+Or use the deployment shell publish to origin/gh-pages branch in local.
+
+```shell
+npm run docs:build
+
+sh deploy.sh
+```
