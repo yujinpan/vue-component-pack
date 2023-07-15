@@ -20,4 +20,4 @@ footer: Copyright © 2022-present your-name
 </template>
 ```
 
-<Demo component="HelloWorld" />
+<demo name="HelloWorld" />

@@ -1,13 +1,13 @@
 <template>
-  <HelloWorld msg="Hello world!" />
+  <HelloWorld :msg="msg" />
 </template>
 
 <script>
-import HelloWorld from 'your-component';
-
 export default {
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      msg: 'Hello world!',
+    };
   },
 };
 </script>
