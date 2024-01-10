@@ -19,7 +19,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "start": "npm run dev",
     "test": "vitest --environment jsdom",
-    "docs:dev": "npm run build && vuepress dev docs",
+    "docs:dev": "rollupx --watch & vuepress dev docs",
     "docs:build": "npm run build && vuepress build docs"
   },
   "peerDependencies": {
