@@ -4,6 +4,8 @@ your-component description
 
 ## Usage
 
+<demo name="HelloWorld" />
+
 ### Install
 
 ```

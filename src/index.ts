@@ -1,7 +1,7 @@
 import type { VueConstructor } from 'vue';
 
 import HelloWorld from '@/components/HelloWorld.vue';
-import './styles/index.scss';
+import './style.css';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
