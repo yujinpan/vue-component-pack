@@ -1,0 +1,1 @@
+import{n}from"./theme.CDLI3KOm.js";import"./framework.Bt9y-trp.js";const o={data(){return{msg:"Hello world!"}}};var t=function(){var r=this,e=r._self._c;return e("HelloWorld",{attrs:{msg:r.msg}})},l=[],s=n(o,t,l,!1,null,null);const c=s.exports;export{c as default};
